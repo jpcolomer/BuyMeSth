@@ -9,18 +9,35 @@
     initialize: function() {
       new BuyMeSth.Routers.Items();
       return Backbone.history.start();
+    },
+    sync: function(method, model, options) {
+      var socket;
+      socket = BuyMeSth.socket;
+      switch (method) {
+        case 'create':
+          return socket.emit('items:create', model);
+        case 'update':
+          return console.log('update');
+        case 'delete':
+          return console.log('update');
+        case 'read':
+          return console.log('read');
+      }
     }
   };
 
   $(document).ready(function() {
-    BuyMeSth.initialize();
     BuyMeSth.socket = io.connect('http://localhost:4000');
+    BuyMeSth.socket.on('connect', function() {
+      return this.emit('join');
+    });
     BuyMeSth.socket.on('messages', function(data) {
       return console.log(data.hello);
     });
-    return BuyMeSth.socket.on('addItem', function(item) {
+    BuyMeSth.socket.on('addItem', function(item) {
       return BuyMeSth.collection.push(item);
     });
+    return BuyMeSth.initialize();
   });
 
 }).call(this);

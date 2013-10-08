@@ -17,6 +17,8 @@
       bought: false
     };
 
+    Item.prototype.sync = BuyMeSth.sync;
+
     return Item;
 
   })(Backbone.Model);

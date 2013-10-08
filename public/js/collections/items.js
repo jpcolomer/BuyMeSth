@@ -13,13 +13,7 @@
 
     Items.prototype.model = BuyMeSth.Models.Item;
 
-    Items.prototype.initialize = function() {
-      return this.on('create', this.addOnServer, this);
-    };
-
-    Items.prototype.addOnServer = function(item) {
-      return BuyMeSth.socket.emit("addItem", item);
-    };
+    Items.prototype.sync = BuyMeSth.sync;
 
     return Items;
 

@@ -31,7 +31,7 @@
         name: $('#new_item_person').val(),
         product: $('#new_item_product').val()
       };
-      this.collection.push(attributes);
+      this.collection.create(attributes);
       this.collection.trigger('create', attributes);
       return $('form')[0].reset();
     };

@@ -3,3 +3,4 @@ class BuyMeSth.Models.Item extends Backbone.Model
     name: ''
     product: ''
     bought: false
+  sync: BuyMeSth.sync
