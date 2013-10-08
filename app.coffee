@@ -31,6 +31,7 @@ io.sockets.on 'connection', (socket) ->
       socket.broadcast.emit("addItem", item)
     )
 
+  #should change this to initialize data on get "/"
   socket.on "join", ->
     redisClient.lrange "items", 0, -1, (err, items) ->
       items = items.reverse()
