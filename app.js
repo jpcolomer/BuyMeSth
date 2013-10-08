@@ -54,6 +54,15 @@
     return redisClient.lpush("items", item, callback);
   };
 
-  server.listen(4000);
+  io.configure('production', function() {
+    console.log('Server in production mode');
+    io.enable('browser client minification');
+    io.enable('browser client etag');
+    io.enable('browser client gzip');
+    io.set('log level', 1);
+    return io.set('transports', ['websocket', 'flashsocket', 'htmlfile', 'xhr-polling', 'jsonp-polling']);
+  });
+
+  server.listen(8080);
 
 }).call(this);
