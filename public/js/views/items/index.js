@@ -17,12 +17,15 @@
 
     ItemsIndex.prototype.className = 'list-unstyled';
 
+    ItemsIndex.prototype.template = _.template($('#items_template').html());
+
     ItemsIndex.prototype.initialize = function() {
       this.collection.on('reset', this.render, this);
       return this.collection.on('add', this.appendItem, this);
     };
 
     ItemsIndex.prototype.render = function() {
+      this.$el.html(this.template());
       this.collection.each(this.appendItem);
       return this;
     };
