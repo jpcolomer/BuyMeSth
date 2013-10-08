@@ -9,6 +9,8 @@ window.BuyMeSth =
 
 $(document).ready ->
   BuyMeSth.initialize()
-  server = io.connect('http://localhost:4000')
-  server.on 'messages', (data) ->
+  BuyMeSth.socket = io.connect('http://localhost:4000')
+  BuyMeSth.socket.on 'messages', (data) ->
     console.log data.hello
+  BuyMeSth.socket.on 'addItem', (item) ->
+    BuyMeSth.collection.push item

@@ -13,11 +13,13 @@
   };
 
   $(document).ready(function() {
-    var server;
     BuyMeSth.initialize();
-    server = io.connect('http://localhost:4000');
-    return server.on('messages', function(data) {
+    BuyMeSth.socket = io.connect('http://localhost:4000');
+    BuyMeSth.socket.on('messages', function(data) {
       return console.log(data.hello);
+    });
+    return BuyMeSth.socket.on('addItem', function(item) {
+      return BuyMeSth.collection.push(item);
     });
   });
 

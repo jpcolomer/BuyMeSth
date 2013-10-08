@@ -32,6 +32,7 @@
         product: $('#new_item_product').val()
       };
       this.collection.push(attributes);
+      this.collection.trigger('create', attributes);
       return $('form')[0].reset();
     };
 

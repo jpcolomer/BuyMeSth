@@ -15,6 +15,8 @@ app.get "/", (request, response)  ->
 
 io.sockets.on 'connection', (socket) ->
   console.log 'Client connected ...'
+  socket.on "addItem", (item) ->
+    socket.broadcast.emit("addItem", item)
 
 server.listen(4000)
 
