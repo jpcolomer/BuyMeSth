@@ -17,6 +17,7 @@ app.set "views", __dirname + "/views"
 app.use(express.static('public'))
 
 # routes
+
 app.get "/", (request, response)  ->
   response.render("index")
 

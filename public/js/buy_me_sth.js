@@ -27,7 +27,7 @@
   };
 
   $(document).ready(function() {
-    BuyMeSth.socket = io.connect('http://localhost:4000');
+    BuyMeSth.socket = io.connect('http://localhost:8080');
     BuyMeSth.socket.on('connect', function() {
       return this.emit('join');
     });
