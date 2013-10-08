@@ -54,6 +54,6 @@
     return redisClient.lpush("items", item, callback);
   };
 
-  server.listen(8080);
+  server.listen(4000);
 
 }).call(this);

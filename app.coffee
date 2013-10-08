@@ -41,5 +41,5 @@ storeItem = (data, callback) ->
   item = JSON.stringify(data)
   redisClient.lpush("items", item, callback)
 
-server.listen(8080)
+server.listen(4000)
 
