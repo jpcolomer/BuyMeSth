@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- Templates -->
+    <script type="text/x-handlebars-template" id="new_item_template">
+      <h1>Pedir compra</h1>
+      <form role="form" class="form-inline">
+        <div class="form-group">
+          <input type="text" class="form-control" id="new_item_person" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="new_item_product" placeholder="Producto">
+        </div>
+        <input type="submit" value="Comprenme porfa!" class="btn btn-default">
+      </form>
+      <hr> 
+    </script>
+
+    <script type="text/x-handlebars-template" id="items_template">
+      <!-- ItemView -->
+    </script>
+
+    <script type="text/x-handlebars-template" id="item_view">
+      <!-- Item -->
+      {{this.name}}
+    </script>
+
+  </head>
+
+  <body>
+    <script src="js/buy_me_sth.js"></script>
+    <script src="js/models/item.js"></script>
+    <script src="js/collections/items.js"></script>
+    <script src="js/views/items/item.js"></script>
+    <script src="js/views/items/index.js"></script>
+    <script src="js/views/items/new.js"></script>
+    <script src="js/views/app_view.js"></script>
+    <script src="js/routers/items_router.js"></script>
+  </body>
+</html>
