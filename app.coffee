@@ -23,13 +23,14 @@ app.get "/", (request, response)  ->
 #socket.io
 io.sockets.on 'connection', (socket) ->
   console.log 'Client connected ...'
-  socket.on "addItem", storeItem
+
+  #use instead of REST API for Backbone
   socket.on "items:create", (item) ->
     storeItem(item, ->
       socket.broadcast.emit("addItem", item)
     )
+
   socket.on "join", ->
-    console.log 'joined'
     redisClient.lrange "items", 0, -1, (err, items) ->
       items = items.reverse()
       for item in items
@@ -40,5 +41,5 @@ storeItem = (data, callback) ->
   item = JSON.stringify(data)
   redisClient.lpush("items", item, callback)
 
-server.listen(4000)
+server.listen(8080)
 

@@ -1,10 +1,17 @@
 {
   "name": "pedidos",
   "description": "Ask someone to buy for you",
-  "version": "0.0.1",
+  "version": "0.0.1-1",
   "dependencies": {
     "express": "3.x",
-    "socket.io":"0.9.x",
-    "redis":"*"
+    "socket.io": "0.9.x",
+    "redis": "*"
+  },
+  "subdomain": "jpcolomer-cumplo_test",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
