@@ -3,23 +3,23 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  BuyMeSth.Views.App = (function(_super) {
+  BuyMeSth.Views.RequestorView = (function(_super) {
 
-    __extends(App, _super);
+    __extends(RequestorView, _super);
 
-    function App() {
-      return App.__super__.constructor.apply(this, arguments);
+    function RequestorView() {
+      return RequestorView.__super__.constructor.apply(this, arguments);
     }
 
-    App.prototype.initialize = function() {
+    RequestorView.prototype.initialize = function() {
       return this.subviews = [
-        new BuyMeSth.Views.MenuView({
+        new BuyMeSth.Views.NewItem({
           collection: this.collection
         })
       ];
     };
 
-    App.prototype.render = function() {
+    RequestorView.prototype.render = function() {
       var subview, _i, _len, _ref;
       _ref = this.subviews;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -29,7 +29,7 @@
       return this;
     };
 
-    return App;
+    return RequestorView;
 
   })(Backbone.View);
 

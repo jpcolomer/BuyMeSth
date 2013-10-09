@@ -25,7 +25,12 @@ html
       |<h2 class="col-md-2"><%= item.get('name') %></h2>
       |<h3 class="col-md-4"><%= item.get('product') %></h3>
 
+    script#menu_view(type="text/template")
+      |<div class="col-md-1"><a href="/" id="solicitante">Solicitante</a></div>
+      |<div class="col-md-1"><a href="/comprador" id="comprador">Comprador</a></div>
+
   body
+    .container
     script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
     script(type="text/javascript", src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js")
     script(type="text/javascript", src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js")
@@ -36,5 +41,8 @@ html
     script(type="text/javascript", src="js/views/items/item.js")
     script(type="text/javascript", src="js/views/items/index.js")
     script(type="text/javascript", src="js/views/items/new.js")
+    script(type="text/javascript", src="js/views/buyer_view.js")
+    script(type="text/javascript", src="js/views/requestor_view.js")
+    script(type="text/javascript", src="js/views/menu_view.js")
     script(type="text/javascript", src="js/views/app_view.js")
     script(type="text/javascript", src="js/routers/items_router.js")

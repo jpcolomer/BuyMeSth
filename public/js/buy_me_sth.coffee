@@ -5,7 +5,7 @@ window.BuyMeSth =
   Routers: {}
   initialize: ->
     new BuyMeSth.Routers.Items()
-    Backbone.history.start()
+    Backbone.history.start(pushState: true)
   sync: (method, model, options) ->
     socket = BuyMeSth.socket
     switch method

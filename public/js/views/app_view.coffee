@@ -1,10 +1,8 @@
-class BuyMeSth.Views.App extends Backbone.View
-  className: 'container' 
+class BuyMeSth.Views.App extends Backbone.View 
 
   initialize: ->
     @subviews = [
-      new BuyMeSth.Views.NewItem(collection: @collection)
-      new BuyMeSth.Views.ItemsIndex(collection: @collection)
+      new BuyMeSth.Views.MenuView(collection: @collection)
     ]
 
   render: ->

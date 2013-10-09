@@ -12,7 +12,8 @@
     }
 
     Items.prototype.routes = {
-      '': 'index'
+      '': 'index',
+      'comprador': 'buyer'
     };
 
     Items.prototype.initialize = function() {
@@ -21,11 +22,34 @@
     };
 
     Items.prototype.index = function() {
-      var view;
-      view = new BuyMeSth.Views.App({
+      this.removeSubView();
+      this.subView = new BuyMeSth.Views.RequestorView({
         collection: this.collection
       });
-      return $('body').prepend(view.render().el);
+      return $('.container').append(this.subView.render().el);
+    };
+
+    Items.prototype.buyer = function() {
+      this.removeSubView();
+      if (this.subView) {
+        this.subView.remove();
+      }
+      this.subView = new BuyMeSth.Views.BuyerView({
+        collection: this.collection
+      });
+      return $('.container').append(this.subView.render().el);
+    };
+
+    Items.prototype.removeSubView = function() {
+      var appView;
+      if (this.subView) {
+        return this.subView.remove();
+      } else {
+        appView = new BuyMeSth.Views.App({
+          collection: this.collection
+        });
+        return $('.container').html(appView.render().el);
+      }
     };
 
     return Items;

@@ -8,7 +8,9 @@
     Routers: {},
     initialize: function() {
       new BuyMeSth.Routers.Items();
-      return Backbone.history.start();
+      return Backbone.history.start({
+        pushState: true
+      });
     },
     sync: function(method, model, options) {
       var socket;

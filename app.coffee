@@ -21,6 +21,9 @@ app.use(express.static('public'))
 app.get "/", (request, response)  ->
   response.render("index")
 
+app.get "/comprador", (request, response)  ->
+  response.render("index")
+
 #socket.io
 io.sockets.on 'connection', (socket) ->
   console.log 'Client connected ...'
