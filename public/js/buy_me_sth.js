@@ -30,9 +30,6 @@
 
   $(document).ready(function() {
     BuyMeSth.socket = io.connect('http://localhost:8080');
-    BuyMeSth.socket.on('connect', function() {
-      return this.emit('join');
-    });
     BuyMeSth.socket.on('messages', function(data) {
       return console.log(data.hello);
     });

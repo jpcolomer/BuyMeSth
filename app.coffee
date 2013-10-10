@@ -19,10 +19,10 @@ app.use(express.static('public'))
 # routes
 
 app.get "/", (request, response)  ->
-  response.render("index")
+  renderAndBootstrapData(response)
 
 app.get "/comprador", (request, response)  ->
-  response.render("index")
+  renderAndBootstrapData(response)
 
 #socket.io
 io.sockets.on 'connection', (socket) ->
@@ -34,17 +34,15 @@ io.sockets.on 'connection', (socket) ->
       socket.broadcast.emit("addItem", item)
     )
 
-  #should change this to initialize data on get "/"
-  socket.on "join", ->
-    redisClient.lrange "items", 0, -1, (err, items) ->
-      items = items.reverse()
-      for item in items
-        item = JSON.parse(item)
-        socket.emit("addItem", item)
-
 storeItem = (data, callback) ->
   item = JSON.stringify(data)
   redisClient.lpush("items", item, callback)
+
+renderAndBootstrapData = (res) ->
+  redisClient.lrange "items", 0, -1, (err, items) ->
+    items.reverse()
+    items = JSON.stringify(items)
+    res.render("index", data: items)
 
 io.configure 'production', ->
   console.log 'Server in production mode'

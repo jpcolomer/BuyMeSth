@@ -17,7 +17,18 @@
     };
 
     Items.prototype.initialize = function() {
+      var dataItem, items;
       this.collection = new BuyMeSth.Collections.Items();
+      items = (function() {
+        var _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = dataItems.length; _i < _len; _i++) {
+          dataItem = dataItems[_i];
+          _results.push(JSON.parse(dataItem));
+        }
+        return _results;
+      })();
+      this.collection.reset(items);
       return BuyMeSth.collection = this.collection;
     };
 

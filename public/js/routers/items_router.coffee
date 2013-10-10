@@ -5,6 +5,9 @@ class BuyMeSth.Routers.Items extends Backbone.Router
 
   initialize: ->
     @collection = new BuyMeSth.Collections.Items()
+    items = for dataItem in dataItems
+      JSON.parse(dataItem)
+    @collection.reset(items)
     BuyMeSth.collection = @collection
 
   index: ->
